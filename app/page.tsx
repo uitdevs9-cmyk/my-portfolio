@@ -3,11 +3,11 @@
 import { motion, MotionConfig } from "motion/react";
 import {
   FadeIn,
-  MotionButton,
   MotionCard,
   MotionLink,
   Reveal,
 } from "./components/motion";
+import { ContactSection } from "@/components/contact-section";
 
 export default function Home() {
   return (
@@ -43,12 +43,20 @@ export default function Home() {
                 Contact
               </a>
             </div>
-            <MotionLink
-              href="#contact"
-              className="px-4 py-2 text-xs font-semibold bg-violet-600 hover:bg-violet-500 text-white rounded-full transition-colors"
-            >
-              Hire me
-            </MotionLink>
+            <div className="flex items-center gap-4">
+              <MotionLink
+                href="/login"
+                className="text-sm text-neutral-400 hover:text-white transition-colors"
+              >
+                Login
+              </MotionLink>
+              <MotionLink
+                href="#contact"
+                className="px-4 py-2 text-xs font-semibold bg-violet-600 hover:bg-violet-500 text-white rounded-full transition-colors"
+              >
+                Hire me
+              </MotionLink>
+            </div>
           </div>
         </motion.nav>
 
@@ -163,52 +171,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal as="section" id="contact" className="scroll-mt-28 space-y-8">
-            <h2 className="text-2xl font-bold text-white tracking-tight border-b border-white/10 pb-4">
-              Let&apos;s build something
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="space-y-4 text-neutral-400">
-                <p>
-                  Have a project in mind or just want to say hi? Drop a message
-                  or email directly.
-                </p>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="p-4 rounded-xl border border-white/10 bg-neutral-900/50 text-sm text-white"
-                >
-                  Email:{" "}
-                  <span className="text-violet-400">uitdevs9@gmail.com</span>
-                </motion.div>
-              </div>
-              <form className="space-y-4">
-                <motion.input
-                  type="text"
-                  placeholder="Name"
-                  whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 bg-neutral-900 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
-                />
-                <motion.input
-                  type="email"
-                  placeholder="Email"
-                  whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 bg-neutral-900 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
-                />
-                <motion.textarea
-                  placeholder="Message"
-                  rows={4}
-                  whileFocus={{ scale: 1.01 }}
-                  className="w-full px-4 py-3 bg-neutral-900 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
-                />
-                <MotionButton
-                  type="button"
-                  className="w-full py-3 bg-violet-600 hover:bg-violet-500 font-semibold text-sm text-white rounded-xl transition-colors"
-                >
-                  Send message
-                </MotionButton>
-              </form>
-            </div>
-          </Reveal>
+          <ContactSection />
         </main>
 
         <footer className="relative border-t border-white/10 py-8 text-center text-xs text-neutral-500">
