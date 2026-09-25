@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@netlify/database": "^2.0.1",
+    "@netlify/identity": "^2.0.0",
+    "drizzle-orm": "^1.0.0-beta.22",
     "motion": "^13.4.4",
     "next": "16.3.6",
     "react": "19.2.8",
@@ -19,6 +23,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^1.0.0-beta.22",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
     "tailwindcss": "^4",
