@@ -1,69 +1,220 @@
-import Image from "next/image";
+"use client";
+
+import { motion, MotionConfig } from "motion/react";
+import {
+  FadeIn,
+  MotionButton,
+  MotionCard,
+  MotionLink,
+  Reveal,
+} from "./components/motion";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <MotionConfig reducedMotion="user">
+      <div className="relative min-h-screen overflow-hidden bg-neutral-950 text-neutral-100 font-sans selection:bg-violet-500 selection:text-white">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="ambient-orb ambient-orb-violet top-[-8rem] left-[-6rem] h-80 w-80 bg-violet-600/25" />
+          <div className="ambient-orb ambient-orb-emerald top-[20rem] right-[-8rem] h-96 w-96 bg-emerald-500/15" />
+          <div className="ambient-orb ambient-orb-violet bottom-[-6rem] left-1/3 h-72 w-72 bg-fuchsia-500/10" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <motion.nav
+          initial={{ y: -80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-md px-6 py-4"
+        >
+          <div className="max-w-6xl mx-auto flex items-center justify-between">
+            <span className="font-bold text-lg text-white tracking-wider">
+              aaban.dev
+            </span>
+            <div className="hidden md:flex gap-6 text-sm text-neutral-400">
+              <a href="#work" className="hover:text-white transition-colors">
+                Work
+              </a>
+              <a href="#stack" className="hover:text-white transition-colors">
+                Stack
+              </a>
+              <a href="#demos" className="hover:text-white transition-colors">
+                Demos
+              </a>
+              <a href="#contact" className="hover:text-white transition-colors">
+                Contact
+              </a>
+            </div>
+            <MotionLink
+              href="#contact"
+              className="px-4 py-2 text-xs font-semibold bg-violet-600 hover:bg-violet-500 text-white rounded-full transition-colors"
+            >
+              Hire me
+            </MotionLink>
+          </div>
+        </motion.nav>
+
+        <main className="relative max-w-6xl mx-auto px-6 pt-32 pb-20 space-y-28">
+          <section className="space-y-6 max-w-3xl">
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Available for freelance & contract work
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.12}>
+              <h1 className="gradient-name text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                Syed Muhammad Aaban
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.24}>
+              <p className="text-xl text-neutral-400 leading-relaxed">
+                Full-Stack Developer & UI Builder with 2 years of field
+                experience. Crafting modern web applications, responsive
+                layouts, and performant backends.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.36} className="flex gap-4 pt-4">
+              <MotionLink
+                href="#work"
+                className="px-6 py-3 bg-white text-black font-medium text-sm rounded-lg hover:bg-neutral-200 transition-colors"
+              >
+                Explore Work
+              </MotionLink>
+              <MotionLink
+                href="#contact"
+                className="px-6 py-3 border border-white/20 bg-neutral-900 text-white font-medium text-sm rounded-lg hover:bg-neutral-800 transition-colors"
+              >
+                Contact Me
+              </MotionLink>
+            </FadeIn>
+          </section>
+
+          <Reveal as="section" id="stack" className="scroll-mt-28 space-y-8" delay={0.05}>
+            <h2 className="text-2xl font-bold text-white tracking-tight border-b border-white/10 pb-4">
+              Tech Stack
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <MotionCard
+                delay={0.05}
+                className="p-6 rounded-2xl border border-white/10 bg-neutral-900/40 backdrop-blur-sm space-y-3"
+              >
+                <h3 className="font-semibold text-violet-400">Frontend</h3>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  React, Next.js, TypeScript, Tailwind CSS, Framer Motion
+                </p>
+              </MotionCard>
+              <MotionCard
+                delay={0.15}
+                className="p-6 rounded-2xl border border-white/10 bg-neutral-900/40 backdrop-blur-sm space-y-3"
+              >
+                <h3 className="font-semibold text-violet-400">Backend & DB</h3>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  Node.js, Express, REST APIs, Supabase, PostgreSQL
+                </p>
+              </MotionCard>
+              <MotionCard
+                delay={0.25}
+                className="p-6 rounded-2xl border border-white/10 bg-neutral-900/40 backdrop-blur-sm space-y-3"
+              >
+                <h3 className="font-semibold text-violet-400">
+                  Tools & Workflow
+                </h3>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  Git, GitHub, Cursor AI, v0.dev, Vercel
+                </p>
+              </MotionCard>
+            </div>
+          </Reveal>
+
+          <Reveal as="section" id="work" className="scroll-mt-28 space-y-8">
+            <h2 className="text-2xl font-bold text-white tracking-tight border-b border-white/10 pb-4">
+              Featured Projects
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <MotionCard
+                delay={0.08}
+                className="group border border-white/10 rounded-2xl p-6 bg-neutral-900/30 hover:border-violet-500/50 transition-colors space-y-4"
+              >
+                <span className="text-xs font-mono text-violet-400">
+                  College Project
+                </span>
+                <h3 className="text-xl font-semibold text-white">
+                  Student Result Management System
+                </h3>
+                <p className="text-sm text-neutral-400">
+                  Full-stack web application for automated result generation,
+                  student record handling, and dynamic data query filters.
+                </p>
+              </MotionCard>
+              <MotionCard
+                delay={0.18}
+                className="group border border-white/10 rounded-2xl p-6 bg-neutral-900/30 hover:border-violet-500/50 transition-colors space-y-4"
+              >
+                <span className="text-xs font-mono text-violet-400">
+                  Personal Web App
+                </span>
+                <h3 className="text-xl font-semibold text-white">
+                  Expense Tracker & Dashboard
+                </h3>
+                <p className="text-sm text-neutral-400">
+                  Interactive financial tracking tool with categorised budget
+                  summaries and Supabase database integration.
+                </p>
+              </MotionCard>
+            </div>
+          </Reveal>
+
+          <Reveal as="section" id="contact" className="scroll-mt-28 space-y-8">
+            <h2 className="text-2xl font-bold text-white tracking-tight border-b border-white/10 pb-4">
+              Let&apos;s build something
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="space-y-4 text-neutral-400">
+                <p>
+                  Have a project in mind or just want to say hi? Drop a message
+                  or email directly.
+                </p>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="p-4 rounded-xl border border-white/10 bg-neutral-900/50 text-sm text-white"
+                >
+                  Email:{" "}
+                  <span className="text-violet-400">uitdevs9@gmail.com</span>
+                </motion.div>
+              </div>
+              <form className="space-y-4">
+                <motion.input
+                  type="text"
+                  placeholder="Name"
+                  whileFocus={{ scale: 1.01 }}
+                  className="w-full px-4 py-3 bg-neutral-900 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
+                />
+                <motion.input
+                  type="email"
+                  placeholder="Email"
+                  whileFocus={{ scale: 1.01 }}
+                  className="w-full px-4 py-3 bg-neutral-900 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
+                />
+                <motion.textarea
+                  placeholder="Message"
+                  rows={4}
+                  whileFocus={{ scale: 1.01 }}
+                  className="w-full px-4 py-3 bg-neutral-900 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
+                />
+                <MotionButton
+                  type="button"
+                  className="w-full py-3 bg-violet-600 hover:bg-violet-500 font-semibold text-sm text-white rounded-xl transition-colors"
+                >
+                  Send message
+                </MotionButton>
+              </form>
+            </div>
+          </Reveal>
+        </main>
+
+        <footer className="relative border-t border-white/10 py-8 text-center text-xs text-neutral-500">
+          © 2026 Syed Muhammad Aaban Devs. Built with Next.js & Tailwind CSS.
+        </footer>
+      </div>
+    </MotionConfig>
   );
 }
